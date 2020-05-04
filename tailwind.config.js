@@ -19,7 +19,7 @@ module.exports = {
       white: '#fff',
       pure_gray: '#f7f6f1',
       menu_gray: '#4B4B4B',
-      menu_yellow: '#FFD55C',
+      menu_yellow: '#fec171',
       menu_profile: '#a2a2a2',
       menu_bg: '#f7f6f1',
       menu_low: '#E8E8E8',

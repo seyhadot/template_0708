@@ -1,28 +1,39 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Header.vue'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
+import Layout from '@/layout'
+
+export const constantRoutes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    meta: { title: 'Dashboard' }
+    path: '/login',
+    component: () => import('../views/About.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue'),
-    meta: { title: 'About' }
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('../views/Home.vue'),
+        name: 'Dashboard',
+        meta: { title: 'Dashboard', icon: 'dashboard' }
+      }
+    ]
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+export const asyncRoutes = []
+
+const createRouter = () =>
+  new Router({
+    mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  })
+
+const router = createRouter()
 
 export default router
