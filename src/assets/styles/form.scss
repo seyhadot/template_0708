@@ -1,0 +1,72 @@
+.el-row {
+  .el-col {
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      span {
+        color: $span_in_label;
+        background: $yellow;
+        padding: 2px 7px;
+        border-radius: 25px;
+        font-size: 10px;
+      }
+    }
+    .el-select {
+      width: 100%;
+    }
+    .el-date-editor--date {
+      width: 100%;
+    }
+    .el-textarea {
+      .el-textarea__inner {
+        background: $input_bg;
+        border: 1px solid $input_bg;
+        margin: 8px 0px;
+      }
+      .el-textarea__inner:focus {
+        border: 1px solid $yellow;
+        border-color: $yellow;
+        background: $input_bg;
+      }
+    }
+    .el-input {
+      input.el-input__inner {
+        background: $input_bg;
+        border: 1px solid $input_bg;
+        margin: 8px 0px;
+      }
+      input.el-input__inner:focus {
+        border: 1px solid $yellow;
+        border-color: $yellow;
+        background: $input_bg;
+      }
+      .el-select__caret {
+        color: $dropdown_caret;
+      }
+    }
+  }
+}
+.action {
+  .el-button {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .el-button--primary {
+    span {
+      text-align: left;
+    }
+    color: $dropdown_caret;
+    background-color: $yellow;
+    border-color: $yellow;
+    &:hover {
+      background-color: $yellow_dark;
+      color: $white;
+    }
+  }
+}
+.el-date-table td.today span {
+  color: $yellow;
+}
+.el-date-table td.available:hover {
+  color: $yellow;
+}

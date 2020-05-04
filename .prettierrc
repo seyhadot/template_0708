@@ -1,0 +1,39 @@
+{
+  "parser": "vue",
+  "trailingComma": 'none',
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 180,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "options": {
+        "parser": "babel"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "html",
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.md"],
+      "options": {
+        "parser": "markdown",
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.scss"],
+      "options": {
+        "parser": "scss",
+        "tabWidth": 2
+      }
+    }
+  ]
+}
