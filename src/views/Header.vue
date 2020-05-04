@@ -1,25 +1,17 @@
 <template>
-  <div class="flex">
-    <aside class="sidebar h-full h-screen bg-menu_yellow">
+  <div class="flex body_wrapper">
+    <aside class="sidebar h-screen bg-menu_yellow">
       <ul class="w-160px page-menu-inner">
         <li class="hover:bg-menu_gray">
-          <a
-            @click="setMenu()"
-            class="sidebar_toggle hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray"
-            v-if="$resize && $mq.above(690)"
-          >
+          <a @click="setMenu()" class="sidebar_toggle hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray" v-if="$resize && $mq.above(690)">
             <i class="uil-wrap-text text-4xl"></i>
           </a>
 
-          <a
-            @click="setMenuMobile()"
-            class="hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray"
-            v-if="$resize && $mq.below(690)"
-          >
+          <a @click="setMenuMobile()" class="hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray" v-if="$resize && $mq.below(690)">
             <i class="uil-wrap-text text-4xl"></i>
           </a>
         </li>
-        <nav class="sh-link-wrapper">
+        <nav class="ul-wrapper">
           <ul data-submenu-title="Apps">
             <li>
               <a href="#">
@@ -73,47 +65,29 @@
         </nav>
       </ul>
     </aside>
-    <div>
-      <header
-        class="h-60px header_scroll w-full bg-menu_gray"
-        :class="{ header_fixed: scrollPosition > 70 }"
-      >
+    <div class="wrapper_main">
+      <header class="h-60px header_scroll w-full bg-menu_gray" :class="{ header_fixed: scrollPosition > 100 }">
         <nav class="flex justify-between items-center h-full">
           <div class="h-full"></div>
           <ul class="flex h-full">
-            <li class="flex items-center h-full header">
-              <a
-                v-click-outside="hideDropDownMennu"
-                @click="toggleDropDownMenu"
-                class="flex items-center h-full px-3"
-              >
+            <li class="flex items-center h-full" v-if="$resize && $mq.above(690)">
+              <a @click="toggleFullScreen" class="cursor-pointer flex items-center h-full px-3 text-white text-lg hover:text-menu_yellow">
+                <i class="uil-focus"></i>
+              </a>
+            </li>
+            <li class="flex items-center h-full dropdown_menu">
+              <a v-click-outside="hideDropDownMennu" @click="toggleDropDownMenu" class="flex items-center h-full px-3">
                 <span class="font-sans text-xs text-menu_profile">Heng Seyha</span>
                 <img class="rounded-full w-8 h-8 ml-2" src="@/assets/img/user.png" />
                 <span class="caret text-gray-400"></span>
               </a>
-              <div
-                class="icon-browse uk-dropdown uk-open"
-                v-show="dropDownMenu"
-                style="right: 56px; top: 60px;"
-              >
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-shop"></i> Dashboard
-                </a>
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-envelope-alt"></i> Messages
-                </a>
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-bookmark"></i> Bookmark
-                </a>
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-shopping-basket"></i> Cart
-                </a>
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-shield-check"></i> Privacy
-                </a>
-                <a href="#" class="icon-menu-item">
-                  <i class="uil-bolt-alt"></i> Upgrade
-                </a>
+              <div class="icon-browse grid-dropdown grid-open" v-show="dropDownMenu" style="right: 56px; top: 60px;">
+                <a href="#" class="icon-menu-item"> <i class="uil-shop"></i> Dashboard </a>
+                <a href="#" class="icon-menu-item"> <i class="uil-envelope-alt"></i> Messages </a>
+                <a href="#" class="icon-menu-item"> <i class="uil-bookmark"></i> Bookmark </a>
+                <a href="#" class="icon-menu-item"> <i class="uil-shopping-basket"></i> Cart </a>
+                <a href="#" class="icon-menu-item"> <i class="uil-shield-check"></i> Privacy </a>
+                <a href="#" class="icon-menu-item"> <i class="uil-bolt-alt"></i> Upgrade </a>
                 <a href="#" class="more-app">More Features</a>
               </div>
             </li>
@@ -146,7 +120,7 @@
             </div>
           </div>
           <div class="content-card bg-white px-6 py-5">
-            <div class="broadcum">
+            <div class="bread_crumb">
               <ul class="flex">
                 <li>
                   <a href>Order Form</a>
@@ -174,12 +148,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                   <label for>Action</label>
                   <el-select v-model="value" placeholder="Select">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
                   </el-select>
                 </el-col>
                 <el-col :xs="12" :sm="12" :lg="6">
@@ -201,23 +170,13 @@
                     <span>add new Destination</span>
                   </label>
                   <el-select v-model="value" placeholder="Select">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
                   </el-select>
                 </el-col>
                 <el-col :xs="12" :sm="12" :lg="12">
                   <label for>Distination License Number</label>
                   <el-select v-model="value" placeholder="Select">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
                   </el-select>
                 </el-col>
                 <el-col :xs="24" :sm="12" :lg="8">
@@ -264,38 +223,74 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 export default {
-  data () {
+  data() {
     return {
       scrollPosition: null,
       openDropDown: false,
       dropDownMenu: false,
+      fullScreen: false,
       input: '',
       textarea: ''
     }
   },
   methods: {
-    toggleDropDownMenu () {
+    toggleDropDownMenu() {
       this.dropDownMenu = !this.dropDownMenu
     },
 
-    hideDropDownMennu () {
+    hideDropDownMennu() {
       this.dropDownMenu = false
     },
-    setMenu () {
+    setMenu() {
       this.active = !this.active
       const sitebody = document.body
       this.active ? sitebody.classList.add('menu_callaped') : sitebody.classList.remove('menu_callaped')
     },
-    setMenuMobile () {
+    setMenuMobile() {
       this.active = !this.active
       const sitebody = document.body
       this.active ? sitebody.classList.add('menu_mobile_callaped') : sitebody.classList.remove('menu_mobile_callaped')
     },
-    updateScroll () {
+    updateScroll() {
       this.scrollPosition = window.scrollY
+    },
+    isInFullScreen() {
+      return (
+        (document.fullscreenElement && document.fullscreenElement !== null) ||
+        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+        (document.msFullscreenElement && document.msFullscreenElement !== null)
+      )
+    },
+    toggleFullScreen() {
+      const isInFullScreen = this.isInFullScreen()
+
+      const docElm = document.documentElement
+      if (!isInFullScreen) {
+        if (docElm.requestFullscreen) {
+          docElm.requestFullscreen()
+        } else if (docElm.mozRequestFullScreen) {
+          docElm.mozRequestFullScreen()
+        } else if (docElm.webkitRequestFullScreen) {
+          docElm.webkitRequestFullScreen()
+        } else if (docElm.msRequestFullscreen) {
+          docElm.msRequestFullscreen()
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen()
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen()
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen()
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen()
+        }
+      }
+      this.fullScreen = !isInFullScreen
     }
   },
-  mounted () {
+  mounted() {
     window.addEventListener('scroll', this.updateScroll)
   },
   directives: {
@@ -305,11 +300,218 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.body_wrapper {
+  .sidebar {
+    z-index: 9;
+    position: fixed;
+    transition: 0.5s;
+    .ul-wrapper {
+      transition: 0.3s;
+      height: calc(100% - 80px);
+      overflow: auto;
+      height: 100%;
+      overflow: hidden scroll;
+      ul {
+        padding: 0;
+        margin: 13px 0 0 0;
+        li {
+          display: block;
+          transition: 0.3s;
+          line-height: 25px;
+          font-size: 14px;
+          height: auto;
+          a {
+            color: #4b4b4b;
+            display: flex;
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+            padding: 13px 25px;
+            font-weight: 500;
+            i {
+              margin-right: 15px;
+              width: 20px;
+              font-size: 22px;
+              color: var(--icon);
+              transition: 0.3s;
+              position: relative;
+              top: 2px;
+              display: inline-block;
+              z-index: -1;
+            }
+            span {
+              z-index: -1;
+            }
+          }
+          a:after {
+            font-family: 'Feather-Icons';
+            content: '\e92e';
+            opacity: 1;
+            font-size: 16px;
+            transition: 0.3s;
+            line-height: 17px;
+            width: 17px;
+            height: 17px;
+            color: #4b4b4b;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 7px;
+            text-indent: 0;
+            position: absolute;
+            right: 25px;
+            top: 19px;
+          }
+          a:only-child:after {
+            content: '';
+            display: none;
+          }
+          ul {
+            padding: 0;
+            margin: 0;
+            visibility: hidden;
+            max-height: 0;
+            opacity: 0;
+            line-height: 0;
+            transition: 0.3s;
+            pointer-events: none;
+            display: none;
+            li {
+              background-color: transparent;
+              border: none;
+              padding-left: 63px;
+              position: relative;
+              margin: 0;
+              a {
+                padding: 9px 0 !important;
+              }
+              a:after {
+                content: '';
+                display: none;
+              }
+            }
+            li:hover {
+              background: none;
+            }
+          }
+          ul:before {
+            content: '';
+            display: none;
+          }
+        }
+        li.active-submenu ul {
+          visibility: visible;
+          padding: 0px 0 13px 0;
+          line-height: 24px;
+          opacity: 1;
+          max-height: 220px;
+          pointer-events: all;
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+          display: block;
+        }
+        li.active-submenu a:after {
+          content: '\e931';
+        }
+        li:hover {
+          background-color: rgba(102, 103, 107, 0.04);
+          width: 100%;
+        }
+      }
+      ul:before {
+        content: attr(data-submenu-title);
+        transition: 0.5s;
+        padding: 0 20px;
+        margin-bottom: 5px;
+        display: block;
+        color: var(--gray-soft);
+        font-weight: 600;
+        font-size: 15px;
+      }
+    }
+  }
+  .wrapper_main {
+    .header_fixed {
+      position: fixed;
+      z-index: 1;
+      transition: 0.9s;
+    }
+    .header_scroll {
+      .dropdown_menu {
+        .grid-dropdown {
+          display: none;
+          position: absolute;
+          z-index: 1020;
+          box-sizing: border-box;
+          min-width: 200px;
+          padding: 20px;
+          background: #fff;
+          color: #666;
+          transition: 0.5s;
+          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+        .grid-open {
+          display: block;
+        }
+        .icon-browse {
+          width: 220px;
+          padding: 1.5rem 1rem;
+          padding-bottom: 0;
+          border-radius: 0;
+          transition: 0.5s;
+          .more-app {
+            background: #f7f7f7;
+            border-radius: 0 0 10px 10px;
+            padding: 10px 0;
+            text-align: center;
+            color: #969696;
+            width: 220px;
+            display: inline-block;
+            margin-bottom: 0;
+            font-size: 14px;
+            margin: 0 -15px;
+            border-top: 1px solid #eaeaea;
+          }
+          .icon-menu-item {
+            width: 90px;
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 1.7rem;
+            color: #969696;
+            font-size: 13px;
+            i {
+              font-size: 28px;
+              line-height: 42px;
+              display: block;
+            }
+            &:hover {
+              color: $yellow;
+            }
+          }
+        }
+        .caret {
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin-left: 0.6em;
+          vertical-align: middle;
+          border-top: 4px dashed;
+          border-top: 4px solid\9;
+          border-right: 4px solid rgba(0, 0, 0, 0);
+          border-left: 4px solid rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+main .content {
+  margin-left: 160px;
+  transition: 0.5s;
+}
 .menu_callaped {
   .page-menu-inner {
     width: 80px;
     transition: 0.5s;
-    .sh-link-wrapper {
+    .ul-wrapper {
       width: 80px;
       transition: 0.5s;
       ul {
@@ -337,6 +539,10 @@ export default {
       }
     }
   }
+  main .content {
+    margin-left: 80px;
+    transition: 0.5s;
+  }
 }
 .app-icon {
   width: 24px;
@@ -357,212 +563,8 @@ export default {
     }
   }
 }
-main .content {
-  margin-left: 160px;
-  transition: 0.5s;
-}
-.menu_callaped main .content {
-  margin-left: 80px;
-  transition: 0.5s;
-}
-.caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 0.6em;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-top: 4px solid\9;
-  border-right: 4px solid rgba(0, 0, 0, 0);
-  border-left: 4px solid rgba(0, 0, 0, 0);
-}
 
-.header_fixed {
-  position: fixed;
-  z-index: 1;
-  transition: 0.9s;
-}
-
-.uk-dropdown {
-  display: none;
-  position: absolute;
-  z-index: 1020;
-  box-sizing: border-box;
-  min-width: 200px;
-  padding: 20px;
-  background: #fff;
-  color: #666;
-  transition: 0.5s;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-}
-.uk-dropdown.uk-open {
-  display: block;
-}
-.header .icon-browse {
-  width: 220px;
-  padding: 1.5rem 1rem;
-  padding-bottom: 0;
-  border-radius: 0;
-  transition: 0.5s;
-}
-.header .icon-browse .icon-menu-item {
-  width: 90px;
-  display: inline-block;
-  text-align: center;
-  margin-bottom: 1.7rem;
-  color: #969696;
-  font-size: 13px;
-  &:hover {
-    color: $yellow;
-  }
-}
-.header .icon-browse .icon-menu-item i {
-  font-size: 28px;
-  line-height: 42px;
-  display: block;
-}
-.header .icon-browse .more-app {
-  background: #f7f7f7;
-  border-radius: 0 0 10px 10px;
-  padding: 10px 0;
-  text-align: center;
-  color: #969696;
-  width: 220px;
-  display: inline-block;
-  margin-bottom: 0;
-  font-size: 14px;
-  margin: 0 -15px;
-  border-top: 1px solid #eaeaea;
-}
-.sidebar {
-  z-index: 9;
-  position: fixed;
-  transition: 0.5s;
-  .sh-link-wrapper {
-    transition: 0.3s;
-    height: calc(100% - 80px);
-    overflow: auto;
-    height: 100%;
-    overflow: hidden scroll;
-    ul {
-      padding: 0;
-      margin: 13px 0 0 0;
-      li {
-        display: block;
-        transition: 0.3s;
-        line-height: 25px;
-        font-size: 14px;
-        height: auto;
-        a {
-          color: #4b4b4b;
-          display: flex;
-          transition: 0.3s;
-          cursor: pointer;
-          position: relative;
-          padding: 13px 25px;
-          font-weight: 500;
-          i {
-            margin-right: 15px;
-            width: 20px;
-            font-size: 22px;
-            color: var(--icon);
-            transition: 0.3s;
-            position: relative;
-            top: 2px;
-            display: inline-block;
-            z-index: -1;
-          }
-          span {
-            z-index: -1;
-          }
-        }
-        a:after {
-          font-family: 'Feather-Icons';
-          content: '\e92e';
-          opacity: 1;
-          font-size: 16px;
-          transition: 0.3s;
-          line-height: 17px;
-          width: 17px;
-          height: 17px;
-          color: #4b4b4b;
-          display: inline-block;
-          border-radius: 3px;
-          margin-left: 7px;
-          text-indent: 0;
-          position: absolute;
-          right: 25px;
-          top: 19px;
-        }
-        a:only-child:after {
-          content: '';
-          display: none;
-        }
-        ul {
-          padding: 0;
-          margin: 0;
-          visibility: hidden;
-          max-height: 0;
-          opacity: 0;
-          line-height: 0;
-          transition: 0.3s;
-          pointer-events: none;
-          display: none;
-          li {
-            background-color: transparent;
-            border: none;
-            padding-left: 63px;
-            position: relative;
-            margin: 0;
-            a {
-              padding: 9px 0 !important;
-            }
-            a:after {
-              content: '';
-              display: none;
-            }
-          }
-          li:hover {
-            background: none;
-          }
-        }
-        ul:before {
-          content: '';
-          display: none;
-        }
-      }
-      li.active-submenu ul {
-        visibility: visible;
-        padding: 0px 0 13px 0;
-        line-height: 24px;
-        opacity: 1;
-        max-height: 220px;
-        pointer-events: all;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        display: block;
-      }
-      li.active-submenu a:after {
-        content: '\e931';
-      }
-      li:hover {
-        background-color: rgba(102, 103, 107, 0.04);
-        width: 100%;
-      }
-    }
-    ul:before {
-      content: attr(data-submenu-title);
-      transition: 0.5s;
-      padding: 0 20px;
-      margin-bottom: 5px;
-      display: block;
-      color: var(--gray-soft);
-      font-weight: 600;
-      font-size: 15px;
-    }
-  }
-}
-.broadcum {
+.bread_crumb {
   ul {
     li {
       a {
@@ -605,7 +607,7 @@ main .content {
     .page-menu-inner {
       width: 70px;
       transition: 0.5s;
-      .sh-link-wrapper {
+      .ul-wrapper {
         display: none;
         width: 70px;
         transition: 0.5s;
@@ -616,7 +618,6 @@ main .content {
     margin-left: 0px;
     transition: 0.5s;
   }
-
   .menu_mobile_callaped {
     .sidebar {
       height: 100vh;
@@ -626,7 +627,7 @@ main .content {
         width: 70px;
         transition: 0.5s;
         display: block;
-        .sh-link-wrapper {
+        .ul-wrapper {
           width: 70px;
           transition: 0.5s;
           display: block;
