@@ -3,15 +3,8 @@
     <router-view></router-view>
   </div>
 </template>
-
-<script>
-export default {
-  components: {}
-}
-</script>
-
 <style lang="scss">
-body {
-  background: $body;
-}
+  body {
+    background: $body;
+  }
 </style>

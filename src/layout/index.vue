@@ -38,7 +38,7 @@ export default {
     ...mapState({
       sidebar: (state) => state.app.sidebar
     }),
-    key () {
+    key() {
       return this.$route.path
     }
   }
