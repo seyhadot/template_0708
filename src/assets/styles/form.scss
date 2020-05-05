@@ -1,3 +1,15 @@
+@keyframes thmBtnRipple {
+	0% {
+		left: 10px;
+  }
+  30%{
+    top: 20px;
+  }
+
+	100% {
+		left: calc(100% - 10px);
+	}
+}
 .el-row {
   .el-col {
     label {
@@ -51,13 +63,103 @@
     padding-left: 3rem;
     padding-right: 3rem;
   }
+  .el-button::before {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.2;
+    width: 35px;
+    height: 35px;
+    top: 10%;
+    transform: translateY(-50%);
+    left: -5px;
+  }  
+  .el-button:hover::before {
+    animation: thmBtnRipple 2s ease-out infinite;
+}
   .el-button--primary {
     span {
       text-align: left;
     }
-    color: $dropdown_caret;
-    background-color: $yellow;
-    border-color: $yellow;
+    color: $white;
+    border-color: #09c0e4;
+    background-size: auto 200%;
+    background-image: linear-gradient(0deg, #1293c8 0%, #1fe4f2 51%, #1293c8 100%);
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-position: top;
+    position: relative;
+
+    &:hover {
+      background-color: $yellow_dark;
+      color: $white;
+    }
+  }
+  .el-button--info {
+    span {
+      text-align: left;
+    }
+    color: $white;
+    border-color: #b94eec;
+    background-image: linear-gradient(0deg, #7b22b0 0%, #e867ff 51%, #7b22b0 100%);
+    background-size: auto 200%;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-position: top;
+    position: relative;
+    &:hover {
+      background-color: $yellow_dark;
+      color: $white;
+    }
+  }
+  .el-button--success {
+    span {
+      text-align: left;
+    }
+    color: $white;
+    border-color: #7dc56f;
+    background-size: auto 200%;
+    background-image: linear-gradient(0deg, #388e3c 0%, #b6e66d 51%, #388e3c 100%);
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-position: top;
+    position: relative;
+
+    &:hover {
+      background-color: $yellow_dark;
+      color: $white;
+    }
+  }
+  .el-button--danger {
+    span {
+      text-align: left;
+    }
+    color: $white;
+    border-color: #ec4c6e;
+    background-image: linear-gradient(0deg, #F94E6C 0%, #dd1144 51%, #F94E6C 100%);
+    background-size: auto 200%;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-position: top;
+    position: relative;
+    &:hover {
+      background-color: $yellow_dark;
+      color: $white;
+    }
+  }
+  .el-button--warning {
+    span {
+      text-align: left;
+    }
+    color: $white;
+    border-color: #ecb975;
+    background-image: linear-gradient(0deg, #fec171 0%, #ea8500 51%, #fec171 100%);
+    background-size: auto 200%;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-position: top;
+    position: relative;
     &:hover {
       background-color: $yellow_dark;
       color: $white;

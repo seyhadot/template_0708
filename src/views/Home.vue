@@ -90,21 +90,9 @@
           <label for>Diver / Delivery Notes</label>
           <el-input type="textarea" :rows="8" placeholder="Please input" v-model="textarea"></el-input>
         </el-col>
-        <el-col :span="24">
-          <label for>Diver / Delivery Notes</label>
-          <el-input type="textarea" :rows="8" placeholder="Please input" v-model="textarea"></el-input>
-        </el-col>
-        <el-col :span="24">
-          <label for>Diver / Delivery Notes</label>
-          <el-input type="textarea" :rows="8" placeholder="Please input" v-model="textarea"></el-input>
-        </el-col>
-        <el-col :span="24">
-          <label for>Diver / Delivery Notes</label>
-          <el-input type="textarea" :rows="8" placeholder="Please input" v-model="textarea"></el-input>
-        </el-col>
       </el-row>
       <div class="action mt-3">
-        <el-button type="primary">Submit</el-button>
+        <el-button type="warning">Submit</el-button>
         <el-button type>Cancel</el-button>
       </div>
     </div>
