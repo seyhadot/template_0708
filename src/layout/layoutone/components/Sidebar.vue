@@ -2,7 +2,11 @@
   <aside class="sidebar h-screen bg-menu_yellow">
     <ul class="w-160px page-menu-inner">
       <li class="hover:bg-menu_gray">
-        <a @click="setMenu()" class="sidebar_toggle hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray" v-if="$resize && $mq.above(690)">
+        <a
+          @click="setMenu()"
+          class="sidebar_toggle cursor-pointer hover:text-menu_yellow w-full flex items-center justify-center py-3 text-menu_gray"
+          v-if="$resize && $mq.above(690)"
+        >
           <i class="uil-wrap-text text-4xl"></i>
         </a>
 

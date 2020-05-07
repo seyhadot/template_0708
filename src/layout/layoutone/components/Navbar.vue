@@ -25,7 +25,7 @@
           </div>
         </li>
         <li class="flex justify-between items-center h-full hover:bg-white">
-          <a class="flex h-full px-4">
+          <a href="/project" to="/project" class="flex h-full px-4">
             <div class="app-icon h-full flex justify-center items-center">
               <div class="app-icon-inner">
                 <div class="app-icon-block first"></div>

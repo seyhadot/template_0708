@@ -6,6 +6,7 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      xs: '400px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -24,6 +25,7 @@ module.exports = {
       menu_bg: '#f7f6f1',
       menu_low: '#E8E8E8',
       menu_title: '#4F4F4E',
+      menu_blue: '#C9EFFF',
 
       gray: {
         100: '#f7fafc',
@@ -241,6 +243,7 @@ module.exports = {
     },
     fontFamily: {
       opensan: ['Open Sans', 'system-ui', '-apple-system'],
+      Raleway: ['Raleway', 'system-ui', '-apple-system'],
       sans: [
         'system-ui',
         '-apple-system',

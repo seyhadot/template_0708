@@ -28,12 +28,7 @@
         <el-col :xs="12" :sm="12" :lg="6">
           <label for>Action</label>
           <el-select v-model="value" placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-col>
         <el-col :xs="12" :sm="12" :lg="6">
@@ -55,23 +50,13 @@
             <span>add new Destination</span>
           </label>
           <el-select v-model="value" placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-col>
         <el-col :xs="12" :sm="12" :lg="12">
           <label for>Distination License Number</label>
           <el-select v-model="value" placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-col>
         <el-col :xs="24" :sm="12" :lg="8">

@@ -186,17 +186,6 @@
             }
           }
         }
-        .caret {
-          display: inline-block;
-          width: 0;
-          height: 0;
-          margin-left: 0.6em;
-          vertical-align: middle;
-          border-top: 4px dashed;
-          border-top: 4px solid\9;
-          border-right: 4px solid rgba(0, 0, 0, 0);
-          border-left: 4px solid rgba(0, 0, 0, 0);
-        }
       }
     }
   }
@@ -204,6 +193,17 @@
 main .content {
   margin-left: 160px;
   transition: 0.5s;
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.6em;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-left: 4px solid rgba(0, 0, 0, 0);
 }
 .menu_callaped {
   .page-menu-inner {

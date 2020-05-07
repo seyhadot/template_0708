@@ -4,7 +4,7 @@
   </div>
 </template>
 <style lang="scss">
-  body {
-    background: $body;
-  }
+body {
+  background: $body;
+}
 </style>

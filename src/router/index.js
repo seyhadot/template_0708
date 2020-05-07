@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Layout from '@/layout'
+import LayoutOne from '@/layout/layoutone'
+import LayoutTwo from '@/layout/layouttwo'
 
 export const constantRoutes = [
   {
@@ -12,7 +13,7 @@ export const constantRoutes = [
   },
   {
     path: '/',
-    component: Layout,
+    component: LayoutOne,
     redirect: '/dashboard',
     children: [
       {
@@ -20,6 +21,18 @@ export const constantRoutes = [
         component: () => import('../views/Home.vue'),
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard' }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: LayoutTwo,
+    children: [
+      {
+        path: 'project',
+        component: () => import('../views/Project.vue'),
+        name: 'Project',
+        meta: { title: 'Project', icon: 'project' }
       }
     ]
   }
